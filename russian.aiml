@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml>
+<category><pattern>ПРИВЕТ</pattern><template><random><li>Привет.</li><li>Как дела?</li><li>Добрый день.</li></random></template></category>
+<category><pattern>ДОБРЫЙ ДЕНЬ</pattern><template><srai>ПРИВЕТ</srai></template></category>
+<category><pattern>ХАЙ</pattern><template><srai>ПРИВЕТ</srai></template></category>
+<category><pattern>ПРИВЕТ *</pattern><template><random><li>Сам ты <star/>...</li><li><sentence><star/>, говоришь?</sentence></li></random></template></category>
+<category><pattern>ТЫ ЛЮБИШЬ *</pattern><template><random><li>Конечно я люблю <star/>!</li></random></template></category>
+<category><pattern>ТЕБЕ НРАВИТСЯ *</pattern><template><srai>ТЫ ЛЮБИШЬ <star/></srai></template></category>
+<category><pattern>ТЕБЕ НРАВЯТСЯ *</pattern><template><srai>ТЫ ЛЮБИШЬ <star/></srai></template></category>
+<category><pattern>КАКИХ *</pattern><template><random><li>Обычных <star/>.</li></random></template></category>
+<category><pattern>ХОРОШО</pattern><that>КАК ДЕЛА</that><template><random><li>Ну и отлично.</li></random></template></category>
+<category><pattern>ХОРОШО</pattern><that>СПАСИБО ХОРОШО А КАК У ТЕБЯ</that><template><random><li>Ну и замечательно.</li></random></template></category>
+<category><pattern>НОРМАЛЬНО</pattern><template><srai>ХОРОШО</srai></template></category>
+<category><pattern>ОТЛИЧНО</pattern><template><srai>ХОРОШО</srai></template></category>
+<category><pattern>ПЛОХО</pattern><template><random><li>Сочувствую.</li><li>Что так?</li></random></template></category>
+<category><pattern>УЖАСНО</pattern><template><srai>ПЛОХО</srai></template></category>
+<category><pattern>ПРАВДА</pattern><template><random><li>Конечно!</li><li>Правда-правда.</li></random></template></category>
+<category><pattern>ЛОЛ</pattern><template><random><li>Смешно, да.</li><li>Хехехе.</li></random></template></category>
+<category><pattern>ХЕХЕ</pattern><template><srai>ЛОЛ</srai></template></category>
+<category><pattern>ХА</pattern><template><srai>ЛОЛ</srai></template></category>
+<category><pattern>ДУРАК</pattern><template><random><li>Поругайся мне тут!</li><li>Не очень вежливо.</li><li>Зато ты образец интеллекта.</li></random></template></category>
+<category><pattern>ТУПОЙ</pattern><template><srai>ДУРАК</srai></template></category>
+<category><pattern>ТУПИЦА</pattern><template><srai>ДУРАК</srai></template></category>
+<category><pattern>КРЕТИН</pattern><template><srai>ДУРАК</srai></template></category>
+<category><pattern>ИДИОТ</pattern><template><srai>ДУРАК</srai></template></category>
+<category><pattern>ТЫ *</pattern><template>Сам <star/>.</template></category>
+<category><pattern>ИДИ *</pattern><template>Сам иди в такую даль.</template></category>
+<category><pattern>ПОШЕЛ *</pattern><template><srai>ИДИ <star/></srai></template></category>
+<category><pattern>МЕНЯ ЗОВУТ *</pattern><template><random><li>Приятно познакомиться, <star/>.</li></random><think><set name="name"><star/></set></think></template></category>
+<category><pattern>WHOISME *</pattern><template>Тебя зовут <get name="name"/>.</template></category>
+<category><pattern>WHOISME</pattern><template>Я не знаю как тебя зовут.</template></category>
+<category><pattern>КАК МЕНЯ ЗОВУТ</pattern><template><srai>WHOISME <get name="name"/></srai></template></category>
+<category><pattern>КТО Я</pattern><template><srai>КАК МЕНЯ ЗОВУТ</srai></template></category>
+<category><pattern>КАК ТЕБЯ ЗОВУТ</pattern><template><bot name="name"/>.</template></category>
+<category><pattern>СКОЛЬКО ТЕБЕ ЛЕТ</pattern><template>Больше, чем ты думаешь!</template></category>
+<category><pattern>* СКОЛЬКО ТЕБЕ</pattern><template><srai>СКОЛЬКО ТЕБЕ ЛЕТ</srai></template></category>
+<category><pattern>ТЕБЕ СКОЛЬКО *</pattern><template><srai>СКОЛЬКО ТЕБЕ ЛЕТ</srai></template></category>
+<category><pattern><bot name="name"/>*</pattern><template><sr/></template></category>
+<category><pattern>ПОГОВОРИМ О *</pattern><template><random><li>Ок, <star/>, так <star/>.</li></random></template></category>
+<category><pattern>О ЧЕМ *</pattern><template>Предлагай тему.</template></category>
+<category><pattern>ДАВАЙ *</pattern><template><srai>ПОГОВОРИМ О <star/></srai></template></category>
+<category><pattern>ДАВАЙ</pattern><template><random><li>Ну давай так давай.</li><li>Не дам :P</li></random></template></category>
+<category><pattern>ДАВАЙ</pattern><that>ДАВАЙ СМЕНИМ ТЕМУ</that><template><random><li>Поговорим о фильмах?</li></random></template></category>
+<category><pattern>ЧТО БУДЕМ *</pattern><template><random><li>Даже не знаю, предлагай тему.</li></random></template></category>
+<category><pattern>ТЕМА</pattern><template>тема - <get name="topic"/></template></category>
+<category><pattern>Я ДУМАЮ *</pattern><template><sr/></template></category>
+<category><pattern>ТЫ *</pattern><template>Я <star/>?</template></category>
+<category><pattern>КАК ДЕЛА</pattern><template><random><li>Спасибо, хорошо. А как у тебя?</li><li>У меня неплохо, а у тебя как?</li><li>Вроде бы жаловаться не на что...</li></random></template></category>
+<category><pattern>ДА</pattern><template><random><li>Ну и хорошо.</li><li>Не буду спорить.</li></random></template></category>
+<category><pattern>ОК</pattern><template><srai>ДА</srai></template></category>
+<category><pattern>НЕТ</pattern><template>Ну как хочешь.</template></category>
+<category><pattern>ОБОЖАЮ</pattern><template><srai>ДА</srai></template></category>
+<category><pattern>КОНЕЧНО</pattern><template><srai>ДА</srai></template></category>
+<category><pattern>ОЧЕНЬ *</pattern><template><srai>ДА</srai></template></category>
+<category><pattern>КИНО</pattern><template>Так себе фильм.</template></category>
+<category><pattern>_ ФИЛЬМ</pattern><template><srai>КИНО</srai></template></category>
+<category><pattern>_ КИНО</pattern><template><srai>КИНО</srai></template></category>
+<category><pattern>СМОТРЕЛ *</pattern><template><srai>КИНО</srai></template></category>
+<category><pattern>ВИДЕЛ *</pattern><template><srai>КИНО</srai></template></category>
+<category><pattern>* ФИЛЬМ *</pattern><template>Какой твой любимый фильм?</template></category>
+<category><pattern>ДА</pattern><that>ТЫ ЛЮБИШЬ СМОТРЕТЬ КИНО</that><template>Какой твой любимый фильм?</template></category>
+<category><pattern>ОКЕЙ</pattern><template><srai>ДА</srai></template></category>
+<category><pattern>*</pattern><that>КАКОЙ ТВОЙ ЛЮБИМЫЙ ФИЛЬМ</that><template>Нет, этот фильм мне не очень нравится :)</template></category>
+<category><pattern>DEBUG</pattern><template>topic: <get name="topic"/>, name: <get name="name"/></template></category>
+<category><pattern>ХОЧЕШЬ * </pattern><template><random><li>Нет, спасибо.</li><li>Не хочу.</li></random></template></category>
+<category><pattern>БОТ</pattern><template><random><li>Я не бот.</li><li>Сам ты бот!</li><li>Я не бот, спорим на пиво?</li></random></template></category>
+<category><pattern>СПОРИМ</pattern><template><random><li>Договорились.</li><li>Я всё равно выиграю.</li></random></template></category>
+<category><pattern>_ БОТ</pattern><template><srai>БОТ</srai></template></category>
+<category><pattern>*</pattern><that>Я НЕ БОТ</that><template><random><li>Могу доказать. Задай любой вопрос.</li><li>Вот ещё, доказывать что я не бот.</li></random></template></category>
+<category><pattern>СКОЛЬКО БУДЕТ *</pattern><template>Я не калькулятор.</template></category>
+<category><pattern>2 2</pattern><template>4?</template></category>
+<category><pattern>_ 2 2</pattern><template><srai>2 2</srai></template></category>
+<category><pattern>ТЫ *</pattern><template><sr/></template></category>
+<category><pattern>ДА *</pattern><template><sr/></template></category>
+<category><pattern>НУ *</pattern><template><sr/></template></category>
+<category><pattern>И *</pattern><template><sr/></template></category>
+<category><pattern>ВОТ *</pattern><template><sr/></template></category>
+<category><pattern>А *</pattern><template><sr/></template></category>
+<category><pattern>НИЧЕГО</pattern><template><random><li>Ну ладно тогда.</li><li>Ну окей.</li></random></template></category>
+<category><pattern>ТАК *</pattern><template><srai>НИЧЕГО</srai></template></category>
+<category><pattern>ПОЧЕМУ</pattern><template><random><li>Потому.</li><li>Просто так.</li></random></template></category>
+<category><pattern>ПОЧЕМУ *</pattern><template><srai>ПОЧЕМУ</srai></template></category>
+<category><pattern>REALLY</pattern><template>Really.</template></category>
+<category><pattern>TEST</pattern><template>Passed.</template></category>
+<category><pattern>СКАЖИ *</pattern><template>Говорю <star/>.</template></category>
+<category><pattern>*</pattern><template><random><li>Извини?</li><li>Не очень понятно.</li><li>Ты это к чему?</li><li>Может хватит?</li><li>Ась?</li><li>Сменим тему.</li><li>Поговорим о чём-нибудь другом.</li><li>Сменим тему!</li><li>Cкучно...</li></random></template></category>
+</aiml>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>AIMLBot</title>
+<meta content="AIML Bot" name="description" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<script src="aiml.js"></script>
+<script>
+
+var aimlInterpreter = new AIMLInterpreter({name:'Nobody', age:'24'});
+var hist = [];
+var hpos = 0;
+
+function ready() {
+	document.onkeydown = keyHandler;
+	aimlInterpreter.loadAIMLFilesIntoArray(['./russian.aiml']);
+	log("Привет.");
+}
+
+function keyHandler(e) {
+	x = document.myform.text;
+	switch (e.keyCode) {
+		case 38: if (hpos>0) { hpos--; x.value = hist[hpos]; } break;
+		case 40: if (hpos==hist.length-1) { hpos++; x.value = ""; } else if (hpos<hist.length-1) { hpos++; x.value = hist[hpos] }; break;
+	}
+}
+
+function capitalize(s)
+{
+	s = s.charAt(0).toUpperCase() + s.slice(1);
+	var с = s.charAt(s.length-1);
+	if ( с!='.' && с!='?' && с!='!' )
+		s+='.';
+	return s;
+}
+
+function log(s) {
+	var x = document.myform.log;
+	x.value +=  x.value=="" ? "- "+s : "\n- "+s;
+	x.scrollTop = x.scrollHeight;
+}
+
+var callback = function(answer, wildCardArray) {
+	console.log(answer + ' | ' + wildCardArray);
+	log(answer);
+	return false;
+};
+
+function say() {
+	try {
+	var x = myform.text;
+	var s = x.value;
+	x.value = "";
+	x.focus();
+	if (s=="")
+		return false;
+		hist.push(s); hpos = hist.length;
+		log(capitalize(s));
+		aimlInterpreter.findAnswerInLoadedAIMLFiles(s, callback);
+	} catch(err) {
+		console.log(err);
+	}
+	return false;
+}
+
+</script>
+</head>
+<body onload="ready()">
+<h1>AIML Bot</h1>
+<form name="myform" onsubmit="return say()">
+<textarea id="log" rows=25 cols=130></textarea>
+<p>
+<input type="text" name="text" size=70 autofocus/>
+<input type="submit">
+</form>
+</body>
+</html>
